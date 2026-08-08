@@ -6,7 +6,7 @@ The project focuses on understanding the mathematical and algorithmic foundation
 
 ---
 
-## 🚀 Project Highlights
+## Project Highlights
 
 * MLP implemented completely from scratch using NumPy
 * User-defined network architecture
@@ -29,7 +29,7 @@ The project focuses on understanding the mathematical and algorithmic foundation
 
 ---
 
-## 🧠 Model Architecture
+##  Model Architecture
 
 The network architecture is provided as a list where each element represents the number of neurons in a layer.
 
@@ -146,176 +146,10 @@ Model Evaluation
       ├── Confusion Matrix
       ├── Precision / Recall / F1
       └── Error Analysis
-```
-
 ---
 
-## 🔢 Forward Propagation
 
-For each layer:
 
-[
-Z^{(l)} = A^{(l-1)}W^{(l)} + b^{(l)}
-]
-
-For hidden layers, ReLU is used:
-
-[
-A^{(l)} = \max(0,Z^{(l)})
-]
-
-The output layer uses Softmax:
-
-[
-P(y=k|x)
-========
-
-\frac{e^{z_k}}
-{\sum_j e^{z_j}}
-]
-
-This produces a probability distribution over the 10 digit classes.
-
----
-
-## 📉 Loss Function
-
-The primary loss function is categorical cross-entropy:
-
-[
-L_{CE}
-======
-
--\frac{1}{m}
-\sum_{i=1}^{m}
-\sum_{k=1}^{10}
-y_{ik}\log(\hat y_{ik})
-]
-
-L2 regularization can additionally be applied to the weights:
-
-[
-L =
-L_{CE}
-+
-\frac{\lambda}{2m}
-\sum_l ||W^{(l)}||_F^2
-]
-
-Bias parameters are not regularized.
-
----
-
-## 🔄 Backpropagation
-
-The gradients are derived and implemented manually using the chain rule.
-
-For the Softmax + Cross-Entropy output layer:
-
-[
-\frac{\partial L}{\partial Z}
-=============================
-
-\hat{Y}-Y
-]
-
-For a weight matrix:
-
-[
-\frac{\partial L}{\partial W}
-=============================
-
-\frac{1}{m}
-A^T\frac{\partial L}{\partial Z}
-+
-\frac{\lambda}{m}W
-]
-
-The gradients are then propagated backward through all hidden layers.
-
----
-
-## ✅ Gradient Checking
-
-To verify the correctness of the analytical backpropagation implementation, numerical gradients are calculated using finite differences:
-
-[
-\frac{\partial L}{\partial\theta}
-\approx
-\frac{
-L(\theta+\epsilon)
-------------------
-
-L(\theta-\epsilon)
-}{
-2\epsilon
-}
-]
-
-The analytical and numerical gradients are compared using relative error:
-
-[
-\text{Difference}
-=================
-
-\frac{
-||g_{analytical}-g_{numerical}||
-}{
-||g_{analytical}||
-+
-||g_{numerical}||
-}
-]
-
-This provides an independent verification that the backpropagation implementation is mathematically correct.
-
----
-
-## 🚀 Optimizers
-
-Two optimizers are implemented from scratch.
-
-### 1. Mini-Batch SGD
-
-Parameters are updated according to:
-
-[
-\theta_{t+1}
-============
-
-## \theta_t
-
-\eta\nabla_\theta L
-]
-
-where:
-
-* (\eta) = learning rate
-* (\nabla_\theta L) = gradient of the loss
-
-### 2. Adam
-
-Adam maintains exponentially weighted estimates of the first and second moments of the gradients:
-
-[
-m_t =
-\beta_1m_{t-1}
-+
-(1-\beta_1)g_t
-]
-
-[
-v_t =
-\beta_2v_{t-1}
-+
-(1-\beta_2)g_t^2
-]
-
-followed by bias correction and parameter updates.
-
-The implementation does not use an external optimizer from PyTorch, TensorFlow, or another deep learning framework.
-
----
 
 ## 📈 Model Evaluation
 
@@ -352,7 +186,7 @@ This helps identify classes that are intrinsically more difficult for the model.
 
 ---
 
-## 🔍 Error Analysis
+## Error Analysis
 
 Incorrect predictions are extracted from the test set and visualized.
 
@@ -367,7 +201,7 @@ This allows qualitative analysis of model errors and provides insight into ambig
 
 ---
 
-## 🧪 Experiments
+## Experiments
 
 The project can be extended with controlled experiments involving:
 
@@ -415,7 +249,7 @@ The validation set should be used to select the best configuration. The test set
 
 ---
 
-## 📁 Repository Structure
+##  Repository Structure
 
 A recommended repository structure is:
 
@@ -549,7 +383,7 @@ This project was developed to understand the internal mechanics of neural networ
 
 ---
 
-## 🔮 Future Improvements
+##  Future Improvements
 
 Possible extensions include:
 
@@ -564,7 +398,7 @@ Possible extensions include:
 
 ---
 
-## 👤 Author
+## Author
 
 **Nitish Chaudhary**
 
